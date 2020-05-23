@@ -49,7 +49,7 @@ public class Pomiar_CisnieniaRepositoryImpl implements Pomiar_CisnieniaRepositor
 			em.persist(pom);
 			return true;
 		}
-		return null;
+		return false;
 	}
 
 	@Override
