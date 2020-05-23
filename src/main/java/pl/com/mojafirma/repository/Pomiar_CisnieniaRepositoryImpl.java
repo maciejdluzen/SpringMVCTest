@@ -39,8 +39,34 @@ public class Pomiar_CisnieniaRepositoryImpl implements Pomiar_CisnieniaRepositor
 
 	@Override
 	public Boolean editPomiar(Integer id, Pomiar_Cisnienia pomiar) {
-		// TODO Auto-generated method stub
+		Pomiar_Cisnienia pom = getPomiarById(id);
+		if(pomiar !=null && pom != null) {
+			pom.setDataPomiaru(pomiar.getDataPomiaru());
+			pom.setOsoba(pomiar.getOsoba());
+			pom.setPuls(pomiar.getPuls());
+			pom.setRozkurczowe(pomiar.getRozkurczowe());
+			pom.setSkurczowe(pomiar.getRozkurczowe());
+			em.persist(pom);
+			return true;
+		}
 		return null;
 	}
+
+	@Override
+	public Boolean removePomiar(Integer id) {
+		Pomiar_Cisnienia pom = getPomiarById(id);
+		if(pom != null) {
+			em.remove(pom);
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
 
 }

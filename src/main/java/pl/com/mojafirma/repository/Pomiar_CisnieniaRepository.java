@@ -14,4 +14,6 @@ public interface Pomiar_CisnieniaRepository {
 	
 	Boolean editPomiar(Integer id, Pomiar_Cisnienia pomiar);
 	
+	Boolean removePomiar(Integer id);
+	
 }
