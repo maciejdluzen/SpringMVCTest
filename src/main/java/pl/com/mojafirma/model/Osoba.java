@@ -12,6 +12,7 @@ import java.util.Set;
  * 
  */
 @Entity
+@Table
 @NamedQuery(name="Osoba.findAll", query="SELECT o FROM Osoba o")
 public class Osoba implements Serializable {
 	private static final long serialVersionUID = 1L;

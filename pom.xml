@@ -67,11 +67,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>4.1.6.RELEASE</version>
-		</dependency>
-			
-			
-			
-			
+		</dependency>	
 				
 		<!-- AspectJ -->
 		<dependency>

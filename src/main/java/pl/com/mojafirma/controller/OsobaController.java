@@ -21,7 +21,7 @@ public class OsobaController {
 	
 	@Autowired
 	private OsobaService osobaService;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(OsobaController.class);
 	
 	@RequestMapping(method=RequestMethod.GET)
@@ -33,6 +33,7 @@ public class OsobaController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String addOsoba(@ModelAttribute("osoba") Osoba osoba, BindingResult bindingResult, Model model) {
+
 		
 		List<Osoba> osoby = osobaService.getAllOsoby();
 		model.addAttribute("osoby", osoby);
@@ -46,6 +47,7 @@ public class OsobaController {
 			model.addAttribute("parkingError", 1);
 			return "osoby";
 		}
+		
 		return "redirect:osoba";
 	}
 	

@@ -6,7 +6,7 @@ import pl.com.mojafirma.model.Osoba;
 
 public interface OsobaService {
 
-Osoba getOsobaById(Integer id);
+	Osoba getOsobaById(Integer id);
 	
 	List<Osoba> getAllOsoby();
 	
