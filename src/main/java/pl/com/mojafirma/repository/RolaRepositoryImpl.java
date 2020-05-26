@@ -15,7 +15,7 @@ import pl.com.mojafirma.model.Rola;
 public class RolaRepositoryImpl implements RolaRepository {
 
 	@PersistenceContext
-	EntityManager em;
+	private EntityManager em;
 	
 	
 	@Override

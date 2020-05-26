@@ -12,14 +12,14 @@ import java.util.Set;
  * 
  */
 @Entity
-@Table
+@Table(name="Osoba")
 @NamedQuery(name="Osoba.findAll", query="SELECT o FROM Osoba o")
 public class Osoba implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
+	private int id;
 
 	private String haslo;
 
@@ -29,7 +29,7 @@ public class Osoba implements Serializable {
 
 	private String nazwisko;
 
-	private Integer wiek;
+	private int wiek;
 
 	//bi-directional many-to-many association to Rola
 	@ManyToMany(fetch=FetchType.EAGER)
@@ -55,7 +55,7 @@ public class Osoba implements Serializable {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -95,7 +95,7 @@ public class Osoba implements Serializable {
 		return this.wiek;
 	}
 
-	public void setWiek(Integer wiek) {
+	public void setWiek(int wiek) {
 		this.wiek = wiek;
 	}
 
@@ -184,6 +184,7 @@ public class Osoba implements Serializable {
 		} else if (!nazwisko.equals(other.nazwisko)) {
 			return false;
 		}
+		
 		if (pomiarCisnienias == null) {
 			if (other.pomiarCisnienias != null) {
 				return false;
@@ -198,6 +199,7 @@ public class Osoba implements Serializable {
 		} else if (!rolas.equals(other.rolas)) {
 			return false;
 		}
+		
 		if (wiek != other.wiek) {
 			return false;
 		}

@@ -16,7 +16,7 @@ import pl.com.mojafirma.model.Osoba;
 import pl.com.mojafirma.service.OsobaService;
 
 @Controller
-@RequestMapping("/osoba")
+@RequestMapping(value="/osoba")
 public class OsobaController {
 	
 	@Autowired
@@ -44,7 +44,7 @@ public class OsobaController {
 		}
 		
 		if(!osobaService.addOsoba(osoba)) {
-			model.addAttribute("parkingError", 1);
+			//model.addAttribute("parkingError", 1);
 			return "osoby";
 		}
 		

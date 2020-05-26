@@ -11,8 +11,8 @@ import pl.com.mojafirma.repository.RolaRepository;
 
 @Service
 @Transactional
-public class RolaServiceImpl implements RolaService {
-
+public class RolaServiceImpl {//implements RolaService {
+	/*
 	@Autowired
 	private RolaRepository rolaRepository;
 	
@@ -40,5 +40,6 @@ public class RolaServiceImpl implements RolaService {
 	public Boolean removeRola(Integer id) {
 		return rolaRepository.removeRola(id);
 	}
+	*/
 
 }
