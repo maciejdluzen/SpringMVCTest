@@ -18,7 +18,7 @@ public class Rola implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	private String rola;
 
@@ -33,7 +33,7 @@ public class Rola implements Serializable {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

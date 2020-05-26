@@ -16,16 +16,16 @@ public class Pomiar_Cisnienia implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@Column(name="data_pomiaru")
 	private Timestamp dataPomiaru;
 
-	private int puls;
+	private Integer puls;
 
-	private int rozkurczowe;
+	private Integer rozkurczowe;
 
-	private int skurczowe;
+	private Integer skurczowe;
 
 	//bi-directional many-to-one association to Osoba
 	@ManyToOne
@@ -38,7 +38,7 @@ public class Pomiar_Cisnienia implements Serializable {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -54,7 +54,7 @@ public class Pomiar_Cisnienia implements Serializable {
 		return this.puls;
 	}
 
-	public void setPuls(int puls) {
+	public void setPuls(Integer puls) {
 		this.puls = puls;
 	}
 
@@ -62,7 +62,7 @@ public class Pomiar_Cisnienia implements Serializable {
 		return this.rozkurczowe;
 	}
 
-	public void setRozkurczowe(int rozkurczowe) {
+	public void setRozkurczowe(Integer rozkurczowe) {
 		this.rozkurczowe = rozkurczowe;
 	}
 
@@ -70,7 +70,7 @@ public class Pomiar_Cisnienia implements Serializable {
 		return this.skurczowe;
 	}
 
-	public void setSkurczowe(int skurczowe) {
+	public void setSkurczowe(Integer skurczowe) {
 		this.skurczowe = skurczowe;
 	}
 

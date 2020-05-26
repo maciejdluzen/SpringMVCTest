@@ -19,7 +19,7 @@ public class Osoba implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	private String haslo;
 
@@ -29,7 +29,7 @@ public class Osoba implements Serializable {
 
 	private String nazwisko;
 
-	private int wiek;
+	private Integer wiek;
 
 	//bi-directional many-to-many association to Rola
 	@ManyToMany(fetch=FetchType.EAGER)
@@ -55,7 +55,7 @@ public class Osoba implements Serializable {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -95,7 +95,7 @@ public class Osoba implements Serializable {
 		return this.wiek;
 	}
 
-	public void setWiek(int wiek) {
+	public void setWiek(Integer wiek) {
 		this.wiek = wiek;
 	}
 
