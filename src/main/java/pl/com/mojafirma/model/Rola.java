@@ -3,6 +3,9 @@ package pl.com.mojafirma.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,6 +27,8 @@ public class Rola implements Serializable {
 
 	//bi-directional many-to-many association to Osoba
 	@ManyToMany(mappedBy="rolas", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, 
+	property = "id")
 	private Set<Osoba> osobas = new HashSet<Osoba>();
 
 	public Rola() {

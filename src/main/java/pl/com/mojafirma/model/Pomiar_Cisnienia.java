@@ -2,6 +2,10 @@ package pl.com.mojafirma.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.sql.Timestamp;
 
 
@@ -29,6 +33,9 @@ public class Pomiar_Cisnienia implements Serializable {
 
 	//bi-directional many-to-one association to Osoba
 	@ManyToOne
+	@JoinColumn(name="osoba_id")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, 
+	property = "id")
 	private Osoba osoba;
 
 	public Pomiar_Cisnienia() {

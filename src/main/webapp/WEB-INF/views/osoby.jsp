@@ -15,8 +15,10 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <title>Osoby</title>
 </head>
 <body>
@@ -33,12 +35,28 @@
 						<th>Id</th>
 						<th>Imię</th>
 						<th>Nazwisko</th>
+						<th>Login</th>
+						<th>Hasło</th>
+						<th>Edycja</th>
+						<th>Usuń</th>
 					</tr>
 					<c:forEach items="${osoby}" var="osoba">
 						<tr>
 							<td>${osoba.id}</td>
 							<td>${osoba.imie}</td>
 							<td>${osoba.nazwisko}</td>
+							<td>${osoba.login}</td>
+							<td>${osoba.haslo}</td>
+							<td><button	class="btn btn-warning btn-sm 
+												glyphicon glyphicon-edit"
+									title="edytuj osobę" 
+									onclick="OsobaUtils.prepareForEditOsoba(${osoba.id})">
+								</button></td>
+							<td><button	class="btn btn-danger btn-sm 
+												glyphicon glyphicon-remove"
+									title="usuń osobę"
+									onclick="OsobaUtils.deleteOsoba(${osoba.id})"> 
+								</button></td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -105,5 +123,6 @@
 			</div>
 		</div>
 	</div>
+	<script src="<c:url value="/resources/osoba.js" />"></script>
 </body>
 </html>

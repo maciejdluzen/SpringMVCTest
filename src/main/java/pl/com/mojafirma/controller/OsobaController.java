@@ -56,17 +56,17 @@ public class OsobaController {
 		return "redirect:osoba";
 	}
 	
-	@RequestMapping(value = "json/{id}, method = RequestMethod.GET")
+	@RequestMapping(value = "/json/{id}", method = RequestMethod.GET)
 	public @ResponseBody Osoba getOsobaJson(@PathVariable("id") Integer id) {
 		return osobaService.getOsobaById(id);
 	}
 	
-	@RequestMapping(value = "json/{id}, method = RequestMethod.GET")
+	@RequestMapping(value = "/json", method = RequestMethod.GET)
 	public @ResponseBody List<Osoba> getOsobyJson() {
 		return osobaService.getAllOsoby();
 	}
 	
-	@RequestMapping(value = "{/id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public void updateOsoba(@PathVariable("id") Integer id, 
 			@RequestBody Osoba osoba, HttpServletResponse response) {
 		logger.info("PUT: Osoba = " + osoba);
@@ -76,7 +76,7 @@ public class OsobaController {
 		else response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 	}
 	
-	@RequestMapping(value = "{/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public void deleteOsoba(@PathVariable("id") Integer id,
 			HttpServletResponse response) {
 		logger.info("DELETE: id = " + id);
@@ -84,16 +84,5 @@ public class OsobaController {
 			response.setStatus(HttpServletResponse.SC_OK);
 		} else response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 }
