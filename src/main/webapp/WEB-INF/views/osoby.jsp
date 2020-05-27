@@ -115,8 +115,15 @@
 				<div class="control-group">
 					<div class="controls">
 						<button class="btn btn-success" id=”addOsobaBtn”>Dodaj osobę</button>
+						
+						<button class="btn btn-success" id=”editBtn”>Edytuj osobę</button>
+						
+						<button class="btn btn-success" id=”cancelEditBtn”>Anuluj edycję</button>
+					</div>
+					</div>
 					</div>
 				</div>
+					
 			</fieldset>
 		</sf:form>
 			
