@@ -16,4 +16,6 @@ public interface Pomiar_CisnieniaRepository {
 	
 	Boolean removePomiar(Integer id);
 	
+	List<Pomiar_Cisnienia> gellAllPomiaryByOsobaId(Integer id);
+	
 }

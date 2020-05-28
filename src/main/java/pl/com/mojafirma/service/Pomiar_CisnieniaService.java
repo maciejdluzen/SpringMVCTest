@@ -6,7 +6,7 @@ import pl.com.mojafirma.model.Pomiar_Cisnienia;
 
 public interface Pomiar_CisnieniaService {
 	
-Pomiar_Cisnienia getPomiarById(Integer id);
+	Pomiar_Cisnienia getPomiarById(Integer id);
 	
 	List<Pomiar_Cisnienia> getAllPomiary();
 	
@@ -15,5 +15,7 @@ Pomiar_Cisnienia getPomiarById(Integer id);
 	Boolean editPomiar(Integer id, Pomiar_Cisnienia pomiar);
 	
 	Boolean removePomiar(Integer id);
+	
+	List<Pomiar_Cisnienia> gellAllPomiaryByOsobaId(Integer id);
 	
 }

@@ -58,7 +58,12 @@
 									title="usuń osobę"
 									onclick="OsobaUtils.deleteOsoba(${osoba.id})"> 
 								</button></td>
-							<td><button>Pomiary ciśnienia</button></td>		
+							<td>
+								<c:url value="/osoba/pomiary" var="pomiary">
+									<c:param name="id" value="${osoba.id}"/>
+								</c:url>
+							<a href="/mojafirma/osoba/pomiary/${osoba.id}">Pomiary</a>
+							</td>		
 						</tr>
 					</c:forEach>
 				</table>

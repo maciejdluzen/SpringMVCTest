@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,6 +61,14 @@ public class Pomiar_CisnieniaRepositoryImpl implements Pomiar_CisnieniaRepositor
 			return true;
 		}
 		return false;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Pomiar_Cisnienia> gellAllPomiaryByOsobaId(Integer id) {
+		Query query = em.createQuery("SELECT p FROM Pomiar_Cisnienia p WHERE p.osoba.id = :id");
+		query.setParameter("id", id);
+		return query.getResultList();
 	}
 	
 	

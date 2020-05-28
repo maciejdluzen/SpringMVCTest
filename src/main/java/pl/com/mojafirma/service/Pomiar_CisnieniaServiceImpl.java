@@ -41,4 +41,9 @@ public class Pomiar_CisnieniaServiceImpl implements Pomiar_CisnieniaService {
 		return pomiarCisnieniaRepository.removePomiar(id);
 	}
 
+	@Override
+	public List<Pomiar_Cisnienia> gellAllPomiaryByOsobaId(Integer id) {
+		return pomiarCisnieniaRepository.gellAllPomiaryByOsobaId(id);
+	}
+
 }
