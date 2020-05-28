@@ -11,7 +11,7 @@ let OsobaUtils = {
 				success : function(result, status) {
 					this.osoba = result;
 					
-					//document.getElementById("editBtn").value = this.osoba.id;
+					document.getElementById("editBtn").value = this.osoba.id;
 					document.getElementById("imie").value = this.osoba.imie;
 					document.getElementById("nazwisko").value = this.osoba.nazwisko;
 					document.getElementById("login").value = this.osoba.login;
@@ -40,7 +40,7 @@ let OsobaUtils = {
 						"Accept" : "application/json"
 					},
 					data : JSON.stringify(this.osoba),
-					success : function(result, osoba) {
+					success : function(result, status) {
 						location.reload();
 					}
 				});
@@ -61,7 +61,9 @@ let OsobaUtils = {
 		},
 		
 		hideEditButtons : function() {
-			$('#editBtn, #cancelEditBtn').hide();
+			
+			$('#editBtn').hide();
+			$('#cancelEditBtn').hide();
 			$('#addOsobaBtn').show();
 			document.getElementById("imie").value = "";
 			document.getElementById("nazwisko").value = "";
@@ -77,9 +79,16 @@ let OsobaUtils = {
 		
 		cancelEdit : function() {
 			this.hideEditButtons();
-		}	
+		}			
 };
 
+
 OsobaUtils.hideEditButtons();
+
+	
+
+
+
+
 
 

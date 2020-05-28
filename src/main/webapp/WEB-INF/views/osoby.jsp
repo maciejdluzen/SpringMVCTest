@@ -39,6 +39,7 @@
 						<th>Hasło</th>
 						<th>Edycja</th>
 						<th>Usuń</th>
+						<th>Szczegóły</th>
 					</tr>
 					<c:forEach items="${osoby}" var="osoba">
 						<tr>
@@ -57,6 +58,7 @@
 									title="usuń osobę"
 									onclick="OsobaUtils.deleteOsoba(${osoba.id})"> 
 								</button></td>
+							<td><button>Pomiary ciśnienia</button></td>		
 						</tr>
 					</c:forEach>
 				</table>
@@ -66,7 +68,7 @@
 		<sf:form class="form-horizontal" method="POST" commandName="osoba"
 			action="${parkingsUrl}" acceptCharset="UTF-8">
 			<fieldset>
-
+			
 				<div class="control-group">
 					<sf:label class="control-label" path="imie">Imię:</sf:label>
 					<div class="controls">
@@ -116,20 +118,18 @@
 					<div class="controls">
 						<button class="btn btn-success" id=”addOsobaBtn”>Dodaj osobę</button>
 						
-						<button class="btn btn-success" id=”editBtn”>Edytuj osobę</button>
+						<button class="btn btn-success" id=”editBtn” onclick="OsobaUtils.editOsoba()">Edytuj osobę</button>
 						
-						<button class="btn btn-success" id=”cancelEditBtn”>Anuluj edycję</button>
-					</div>
-					</div>
+						<button class="btn btn-success" id=”cancelEditBtn” onclick="OsobaUtils.cancelEdit()">Anuluj edycję</button>
 					</div>
 				</div>
-					
 			</fieldset>
 		</sf:form>
-			
+				
 			</div>
 		</div>
 	</div>
-	<script src="<c:url value="/resources/osoba.js" />"></script>
+	<script src="<c:url value="/resources/osoba.js" />"></script>	
 </body>
+
 </html>
