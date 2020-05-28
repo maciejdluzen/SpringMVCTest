@@ -61,6 +61,48 @@
 						</tr>
 					</c:forEach>
 				</table>
+				<h3 class="bg-primary">Dodaj osobę:</h3>
+		<spring:url value="/osoba/pomiary" var="pomiaryUrl" />
+				
+				<sf:form class="form-horizontal" method="POST" commandName="pomiar"
+			action="${parkingsUrl}" acceptCharset="UTF-8">
+				<fieldset>
+				
+				
+				<div class="control-group">
+					<sf:label class="control-label" path="puls">Puls:</sf:label>
+					<div class="controls">
+						<sf:input path="puls" placeholder="podaj puls"
+							class="input-xlarge" />
+						<sf:errors path="puls" />						
+					</div>
+				</div>
+			
+				<div class="control-group">
+					<sf:label class="control-label" path="rozkurczowe">Rozkurczowe:</sf:label>
+					<div class="controls">
+						<sf:input path="rozkurczowe" placeholder="podaj rozkurczowe"
+							class="input-xlarge" />
+						<sf:errors path="rozkurczowe" />						
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<sf:label class="control-label" path="skurczowe">Skurczowe:</sf:label>
+					<div class="controls">
+						<sf:input path="skurczowe" placeholder="podaj skurczowe"
+							class="input-xlarge" />
+						<sf:errors path="skurczowe" />						
+					</div>
+				</div>
+			
+				<div class="control-group">
+					<div class="controls">
+						<button class="btn btn-success" id=”addPomiarBtn”>Dodaj pomiar</button>
+					</div>
+				</div>
+				</fieldset>
+			</sf:form>
 			</div>
 		</div>
 	</div>

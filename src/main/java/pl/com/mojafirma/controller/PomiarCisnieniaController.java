@@ -2,6 +2,8 @@ package pl.com.mojafirma.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,27 +29,32 @@ public class PomiarCisnieniaController {
 	@Autowired
 	private OsobaService osobaService;
 	
+	private static final Logger logger = LoggerFactory.getLogger(PomiarCisnieniaController.class);
+	
 	@RequestMapping(value = "/{id}", method=RequestMethod.GET)
 	public String getPomiaryOfOsoba(@PathVariable("id") Integer id, Model model) {
 		List<Pomiar_Cisnienia> pomiary = pomiar_CisnieniaService.gellAllPomiaryByOsobaId(id);
 		Osoba osoba = osobaService.getOsobaById(id);		
 		model.addAttribute("pomiary", pomiary);
 		model.addAttribute("osoba", osoba);
+		model.addAttribute("pomiar", new Pomiar_Cisnienia());
 		return "pomiary";
 	}
 	
+	@RequestMapping(value = "/{id}", method=RequestMethod.POST)
 	public String addPomiar(@ModelAttribute("pomiar") Pomiar_Cisnienia pomiar, 
 			BindingResult bindingResult, Model model) {
 		
 		if(bindingResult.hasErrors()) {
-			
+			logger.info("Binding error " + bindingResult.toString());
+			return "osoby";
 		}
 		
-		
-		
-		
-		return null;
-		
+		if(!pomiar_CisnieniaService.addPomiar(pomiar)) {
+			logger.info("Saving pomiar " + pomiar.toString());
+			return "osoby";
+		}
+		return "redirect:osoba";	
 	}
 	
 	

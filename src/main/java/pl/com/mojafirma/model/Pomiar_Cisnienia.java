@@ -57,7 +57,7 @@ public class Pomiar_Cisnienia implements Serializable {
 		this.dataPomiaru = dataPomiaru;
 	}
 
-	public int getPuls() {
+	public Integer getPuls() {
 		return this.puls;
 	}
 
@@ -65,7 +65,7 @@ public class Pomiar_Cisnienia implements Serializable {
 		this.puls = puls;
 	}
 
-	public int getRozkurczowe() {
+	public Integer getRozkurczowe() {
 		return this.rozkurczowe;
 	}
 
@@ -73,7 +73,7 @@ public class Pomiar_Cisnienia implements Serializable {
 		this.rozkurczowe = rozkurczowe;
 	}
 
-	public int getSkurczowe() {
+	public Integer getSkurczowe() {
 		return this.skurczowe;
 	}
 
