@@ -22,7 +22,7 @@ public class Osoba implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	private String haslo;
 
@@ -32,7 +32,7 @@ public class Osoba implements Serializable {
 
 	private String nazwisko;
 
-	private int wiek;
+	private Integer wiek;
 
 	//bi-directional many-to-many association to Rola
 	@ManyToMany(fetch=FetchType.EAGER)
@@ -50,7 +50,7 @@ public class Osoba implements Serializable {
 	private Set<Rola> rolas = new HashSet<Rola>();
 
 	//bi-directional many-to-one association to Pomiar_Cisnienia
-	@OneToMany(mappedBy="osoba", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="osoba", fetch=FetchType.EAGER, cascade=CascadeType.MERGE)
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, 
 						property = "id")
 	private Set<Pomiar_Cisnienia> pomiarCisnienias = new HashSet<Pomiar_Cisnienia>();
@@ -58,11 +58,11 @@ public class Osoba implements Serializable {
 	public Osoba() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -98,11 +98,11 @@ public class Osoba implements Serializable {
 		this.nazwisko = nazwisko;
 	}
 
-	public int getWiek() {
+	public Integer getWiek() {
 		return this.wiek;
 	}
 
-	public void setWiek(int wiek) {
+	public void setWiek(Integer wiek) {
 		this.wiek = wiek;
 	}
 
@@ -211,6 +211,12 @@ public class Osoba implements Serializable {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Osoba [id=" + id + ", haslo=" + haslo + ", imie=" + imie + ", login=" + login + ", nazwisko=" + nazwisko
+				+ ", wiek=" + wiek + ", rolas=" + rolas + "]";
 	}
 	
 	

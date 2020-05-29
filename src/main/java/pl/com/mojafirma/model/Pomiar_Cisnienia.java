@@ -32,7 +32,7 @@ public class Pomiar_Cisnienia implements Serializable {
 	private Integer skurczowe;
 
 	//bi-directional many-to-one association to Osoba
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="osoba_id")
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, 
 	property = "id")
@@ -41,7 +41,7 @@ public class Pomiar_Cisnienia implements Serializable {
 	public Pomiar_Cisnienia() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -88,5 +88,13 @@ public class Pomiar_Cisnienia implements Serializable {
 	public void setOsoba(Osoba osoba) {
 		this.osoba = osoba;
 	}
+
+	@Override
+	public String toString() {
+		return "Pomiar_Cisnienia [id=" + id + ", dataPomiaru=" + dataPomiaru + ", puls=" + puls + ", rozkurczowe="
+				+ rozkurczowe + ", skurczowe=" + skurczowe + "]";
+	}
+	
+	
 
 }

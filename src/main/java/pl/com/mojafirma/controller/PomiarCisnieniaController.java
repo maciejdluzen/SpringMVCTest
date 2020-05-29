@@ -31,19 +31,25 @@ public class PomiarCisnieniaController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(PomiarCisnieniaController.class);
 	
-	@RequestMapping(value = "/{id}", method=RequestMethod.GET)
-	public String getPomiaryOfOsoba(@PathVariable("id") Integer id, Model model) {
+	@RequestMapping(value = "/{osobaId}", method=RequestMethod.GET)
+	public String getPomiaryOfOsoba(@PathVariable("osobaId") Integer id, Model model) {
 		List<Pomiar_Cisnienia> pomiary = pomiar_CisnieniaService.gellAllPomiaryByOsobaId(id);
+		
 		Osoba osoba = osobaService.getOsobaById(id);		
 		model.addAttribute("pomiary", pomiary);
+		
 		model.addAttribute("osoba", osoba);
 		model.addAttribute("pomiar", new Pomiar_Cisnienia());
 		return "pomiary";
 	}
 	
-	@RequestMapping(value = "/{id}", method=RequestMethod.POST)
-	public String addPomiar(@ModelAttribute("pomiar") Pomiar_Cisnienia pomiar, 
+	@RequestMapping(value = "/{osobaId}", method=RequestMethod.POST)
+	public String addPomiar(@ModelAttribute("pomiar") Pomiar_Cisnienia pomiar, @PathVariable("osobaId") Integer osobaId,
 			BindingResult bindingResult, Model model) {
+		pomiar.setId(100);
+		pomiar.setOsoba(osobaService.getOsobaById(osobaId));
+		
+		logger.info("Zapis pomiaru: " + pomiar.toString());
 		
 		if(bindingResult.hasErrors()) {
 			logger.info("Binding error " + bindingResult.toString());
@@ -54,7 +60,7 @@ public class PomiarCisnieniaController {
 			logger.info("Saving pomiar " + pomiar.toString());
 			return "osoby";
 		}
-		return "redirect:osoba";	
+		return "redirect:/osoba/pomiary/{osobaId}";	
 	}
 	
 	

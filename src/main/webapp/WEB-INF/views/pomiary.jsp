@@ -3,6 +3,7 @@
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 
@@ -62,12 +63,12 @@
 					</c:forEach>
 				</table>
 				<h3 class="bg-primary">Dodaj osobę:</h3>
-		<spring:url value="/osoba/pomiary" var="pomiaryUrl" />
+
 				
+			
 				<sf:form class="form-horizontal" method="POST" commandName="pomiar"
 			action="${parkingsUrl}" acceptCharset="UTF-8">
 				<fieldset>
-				
 				
 				<div class="control-group">
 					<sf:label class="control-label" path="puls">Puls:</sf:label>
@@ -95,7 +96,7 @@
 						<sf:errors path="skurczowe" />						
 					</div>
 				</div>
-			
+				
 				<div class="control-group">
 					<div class="controls">
 						<button class="btn btn-success" id=”addPomiarBtn”>Dodaj pomiar</button>

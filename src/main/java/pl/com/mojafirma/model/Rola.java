@@ -34,7 +34,7 @@ public class Rola implements Serializable {
 	public Rola() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 

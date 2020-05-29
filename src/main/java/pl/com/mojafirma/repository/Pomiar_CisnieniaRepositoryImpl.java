@@ -32,7 +32,8 @@ public class Pomiar_CisnieniaRepositoryImpl implements Pomiar_CisnieniaRepositor
 	@Override
 	public Boolean addPomiar(Pomiar_Cisnienia pomiar) {
 		if(pomiar != null && getPomiarById(pomiar.getId()) == null) {
-			em.persist(pomiar);
+			
+			em.merge(pomiar);
 			return true;
 		}
 		return false;
