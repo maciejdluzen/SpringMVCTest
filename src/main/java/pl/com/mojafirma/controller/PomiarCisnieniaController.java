@@ -2,6 +2,8 @@ package pl.com.mojafirma.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,4 +64,13 @@ public class PomiarCisnieniaController {
 		}
 		return "redirect:/osoba/pomiary/{osobaId}";	
 	}
+	
+	@RequestMapping(value = "/{osobaId}/{id}", method=RequestMethod.DELETE)
+	public void deletePomiar(@PathVariable("osobaId") Integer osobaId, @PathVariable("id") Integer id,
+			HttpServletResponse response) {
+		logger.info("DELETE: id = " + id);
+		if(pomiar_CisnieniaService.removePomiar(id)) {
+			response.setStatus(HttpServletResponse.SC_OK);
+		} else response.setStatus(HttpServletResponse.SC_BAD_REQUEST);	
+	}	
 }

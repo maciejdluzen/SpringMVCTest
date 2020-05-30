@@ -39,7 +39,6 @@
 						<th>Puls</th>
 						<th>Rozkurczowe</th>
 						<th>Skurczowe</th>
-						<th>Edycja</th>
 						<th>Usuń</th>
 					</tr>
 					<c:forEach items="${pomiary}" var="pomiar">
@@ -49,23 +48,16 @@
 							<td>${pomiar.puls}</td>
 							<td>${pomiar.rozkurczowe}</td>
 							<td>${pomiar.skurczowe}</td>
-							<td><button	class="btn btn-warning btn-sm 
-												glyphicon glyphicon-edit"
-									title="edytuj osobę" 
-									onclick="">
-								</button></td>
 							<td><button	class="btn btn-danger btn-sm 
 												glyphicon glyphicon-remove"
-									title="usuń osobę"
-									onclick=""> 
+									title="usuń pomiar"
+									onclick="PomiarUtils.deletePomiar(${osoba.id}, ${pomiar.id})"> 
 								</button></td>		
 						</tr>
 					</c:forEach>
 				</table>
-				<h3 class="bg-primary">Dodaj osobę:</h3>
+				<h3 class="bg-primary">Dodaj Pomiar:</h3>
 
-				
-			
 				<sf:form class="form-horizontal" method="POST" commandName="pomiar"
 			action="${parkingsUrl}" acceptCharset="UTF-8">
 				<fieldset>
@@ -107,7 +99,7 @@
 			</div>
 		</div>
 	</div>
-	
+	<script src="<c:url value="/resources/pomiar.js" />"></script>
 </body>
 
 </html>
