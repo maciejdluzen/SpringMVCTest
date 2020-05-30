@@ -1,5 +1,7 @@
 package pl.com.mojafirma.service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,10 @@ public class OsobaServiceImpl implements OsobaService {
 
 	@Override
 	public List<Osoba> getAllOsoby() {
-		return osobaRepository.getAllOsoby();
+		List<Osoba> osoby = osobaRepository.getAllOsoby();
+		LastNameComparator comparator = new LastNameComparator();
+		Collections.sort(osoby, comparator);
+		return osoby;
 	}
 
 	@Override
@@ -40,5 +45,12 @@ public class OsobaServiceImpl implements OsobaService {
 	public Boolean removeOsoba(Integer id) {
 		return osobaRepository.removeOsoba(id);
 	}
+	
+	private class LastNameComparator implements Comparator<Osoba> {
 
+		@Override
+		public int compare(Osoba osobaOne, Osoba osobaTwo) {		
+			return osobaOne.getNazwisko().compareTo(osobaTwo.getNazwisko());
+		}	
+	}
 }

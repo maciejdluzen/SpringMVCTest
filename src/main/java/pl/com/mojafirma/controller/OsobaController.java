@@ -38,7 +38,7 @@ public class OsobaController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String addOsoba(@ModelAttribute("osoba") Osoba osoba, BindingResult bindingResult, Model model) {
-
+		osoba.setId(100);
 		
 		List<Osoba> osoby = osobaService.getAllOsoby();
 		model.addAttribute("osoby", osoby);
@@ -49,7 +49,7 @@ public class OsobaController {
 		}
 		
 		if(!osobaService.addOsoba(osoba)) {
-			//model.addAttribute("parkingError", 1);
+			model.addAttribute("parkingError", 1);
 			return "osoby";
 		}
 		

@@ -32,7 +32,7 @@ public class OsobaRepositoryImpl implements OsobaRepository {
 	@Override
 	public Boolean addOsoba(Osoba osoba) {
 		if(osoba != null && getOsobaById(osoba.getId()) == null) {
-			em.persist(osoba);
+			em.merge(osoba);
 			return true;
 		}
 		return false;
