@@ -3,6 +3,8 @@ package pl.com.mojafirma.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -50,7 +52,7 @@ public class Osoba implements Serializable {
 	private Set<Rola> rolas = new HashSet<Rola>();
 
 	//bi-directional many-to-one association to Pomiar_Cisnienia
-	@OneToMany(mappedBy="osoba", fetch=FetchType.EAGER, cascade=CascadeType.MERGE)
+	@OneToMany(mappedBy="osoba", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, 
 						property = "id")
 	private Set<Pomiar_Cisnienia> pomiarCisnienias = new HashSet<Pomiar_Cisnienia>();

@@ -62,13 +62,4 @@ public class PomiarCisnieniaController {
 		}
 		return "redirect:/osoba/pomiary/{osobaId}";	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
