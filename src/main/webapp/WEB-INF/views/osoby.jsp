@@ -29,6 +29,8 @@
 				<p class="text-center alert alert-warning">Lista wszystkich osób:</p>
 			</div>
 		</div>
+		<a href="<c:url value="j_spring_security_logout"/>"
+				class="btn btn-warning btn-mini"></a>
 		<div class="row">
 			<div class="col-md-6">
 				<table class="table table-striped table-hover">
