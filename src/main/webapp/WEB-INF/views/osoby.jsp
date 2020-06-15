@@ -19,6 +19,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
 <title>Osoby</title>
 </head>
 <body>
@@ -123,7 +124,7 @@
 					<div class="controls">
 						<button class="btn btn-success" id=”addOsobaBtn”>Dodaj osobę</button>
 						
-						<button class="btn btn-success" id=”editBtn” onclick="OsobaUtils.editOsoba()">Edytuj osobę</button>
+						<button class="btn btn-success" id=”editBtn” onclick="OsobaUtils.editOsoba(${osoba.id})">Edytuj osobę</button>
 						
 						<button class="btn btn-success" id=”cancelEditBtn” onclick="OsobaUtils.cancelEdit()">Anuluj edycję</button>
 					</div>
