@@ -18,23 +18,30 @@
 </security:http>
 
 <!-- CONFIGURATION AUTHORISATION -->
-<!-- <security:authentication-manager>
+<security:authentication-manager>
 	<security:authentication-provider>
 		<security:user-service>		
 			<security:user name="user" password="user" authorities="ROLE_USER"/>
 			<security:user name="admin" password="admin" authorities="ROLE_ADMIN"/>
 		</security:user-service>
 	</security:authentication-provider>
-</security:authentication-manager> -->
+</security:authentication-manager>
 
-<!-- CONFIGURATION AUTHORISATION -->
+<!-- CONFIGURATION AUTHORISATION 
 <security:authentication-manager>
 	<security:authentication-provider>
 		<security:jdbc-user-service 
 			data-source-ref="dataSource"
-			users-by-username-query="select login, haslo, 1 from osoba where login=?"
-			authorities-by-username-query="select os.login, ro.rola from osoba as os join osoba_rola as osro
+			users-by-username-query="select login, haslo from Osoba where login=?"
+			authorities-by-username-query="select os.login, ro.rola from Osoba as os join Osoba_Rola as osro
 			on os.id = osro.osoba_id join rola as ro on osro.rola_id = ro.id where os.login=?"/>
 	</security:authentication-provider>
-</security:authentication-manager>
+</security:authentication-manager> -->
 </beans:beans>
+
+
+
+
+
+
+
