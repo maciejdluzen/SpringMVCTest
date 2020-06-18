@@ -30,11 +30,11 @@
 	<!-- PLACEHOLDER -->
 	<context:property-placeholder location="classpath:META-INF/db.properties" />
 	
-	<!-- DATA SOURCE -->
+	<!-- DATA SOURCE 
 	<beans:bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		p:driverClassName="${db.driverClassName}" p:url="${db.url}"
-		p:username="${db.username}" p:password="${db.password}" />
+		p:username="${db.username}" p:password="${db.password}" /> -->
 				
 	<!-- ENTITY MANAGER FACTORY -->
 	<beans:bean id="emf"

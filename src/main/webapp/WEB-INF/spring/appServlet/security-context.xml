@@ -17,7 +17,7 @@
 				<security:csrf disabled="true"/>
 </security:http>
 
-<!-- CONFIGURATION AUTHORISATION -->
+<!-- CONFIGURATION AUTHORISATION 
 <security:authentication-manager>
 	<security:authentication-provider>
 		<security:user-service>		
@@ -25,18 +25,19 @@
 			<security:user name="admin" password="admin" authorities="ROLE_ADMIN"/>
 		</security:user-service>
 	</security:authentication-provider>
-</security:authentication-manager>
+</security:authentication-manager> -->
 
-<!-- CONFIGURATION AUTHORISATION 
+<!-- CONFIGURATION AUTHORISATION -->
 <security:authentication-manager>
 	<security:authentication-provider>
 		<security:jdbc-user-service 
 			data-source-ref="dataSource"
-			users-by-username-query="select login, haslo from Osoba where login=?"
+			users-by-username-query="select login, haslo, 1 from Osoba where login=?"
 			authorities-by-username-query="select os.login, ro.rola from Osoba as os join Osoba_Rola as osro
-			on os.id = osro.osoba_id join rola as ro on osro.rola_id = ro.id where os.login=?"/>
+			on os.id = osro.osoba_id join Rola as ro on osro.rola_id = ro.id where os.login=?"
+			/>
 	</security:authentication-provider>
-</security:authentication-manager> -->
+</security:authentication-manager> 
 </beans:beans>
 
 

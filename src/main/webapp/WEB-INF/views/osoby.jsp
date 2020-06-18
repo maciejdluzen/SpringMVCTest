@@ -3,6 +3,7 @@
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <html>
 <head>
 
@@ -29,8 +30,30 @@
 				<p class="text-center alert alert-warning">Lista wszystkich osób:</p>
 			</div>
 		</div>
+		
+		<div class="row">
+			<div class="col-md-6">
+				<sec:authorize access="isAuthenticated()">
+				
+					<sec:authentication property="principal.username" 
+					var="loggedUser" scope="request"/>
+					
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<p class="text-left alert alert-success">Jesteś zalogowany jako Admin. 
+						Twoja nazwa użytkownika to: ${loggedUser}</p>
+					</sec:authorize>
+					
+					<sec:authorize access="hasRole('ROLE_USER')">
+						<p class="text-left alert alert-success">Jesteś zalogowany jako User. 
+						Twoja nazwa użytkownika to: ${loggedUser}</p>
+					</sec:authorize>
+						
+				</sec:authorize>
+			</div>
+		</div>
+		
 		<a href="<c:url value="j_spring_security_logout"/>"
-				class="btn btn-warning btn-mini"></a>
+				class="btn btn-warning btn-mini">Wyloguj</a>
 		<div class="row">
 			<div class="col-md-6">
 				<table class="table table-striped table-hover">
